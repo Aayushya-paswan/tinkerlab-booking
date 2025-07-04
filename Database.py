@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 def init_firebase():
     if not firebase_admin._apps:
-        cred = credentials.Certificate("tinker-lab-manager-firebase-adminsdk-fbsvc-af00c4e4c3.json")
+        cred = credentials.Certificate(st.secrets["firebase"])
         firebase_admin.initialize_app(cred, {
             'databaseURL': 'https://tinker-lab-manager-default-rtdb.firebaseio.com/'
         })
