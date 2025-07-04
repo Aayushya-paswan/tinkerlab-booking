@@ -103,36 +103,6 @@ Click Deploy
 
 Your app will be live and accessible from any device.
 
-📁 Project Structure
-graphql
-Copy
-Edit
-tinkerlab-booking/
-│
-├── main.py                      # Streamlit UI
-├── Database.py                  # Firebase logic and data handling
-├── requirements.txt             # Python dependencies
-├── .streamlit/
-│   └── secrets.toml             # Firebase credentials (keep this secret!)
-├── README.md
-└── tinker-lab-manager-firebase-adminsdk.json  # (Do NOT commit this file)
-💡 Sample Equipment Entries
-Here are some sample electronics you can add:
-
-Oscilloscope – Measures and visualizes voltage signals
-
-3D Printer – Used for rapid prototyping
-
-Soldering Station – For circuit assembly
-
-Arduino Kit – Microcontroller for prototyping
-
-Digital Multimeter – Voltage and current readings
-
-Raspberry Pi – Compact Linux computer
-
-Function Generator – Signal source for circuits
-
 🧑‍💻 Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you’d like to change.
 
