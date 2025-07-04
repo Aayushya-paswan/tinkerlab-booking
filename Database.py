@@ -6,14 +6,18 @@ import json
 
 def init_firebase():
     if not firebase_admin._apps:
+        # Convert SecretDict to regular dict before json.dump
+        firebase_creds = dict(st.secrets["firebase"])
+
         with tempfile.NamedTemporaryFile(mode="w+", delete=False) as f:
-            json.dump(st.secrets["firebase"], f)
+            json.dump(firebase_creds, f)
             temp_cred_path = f.name
 
         cred = credentials.Certificate(temp_cred_path)
         firebase_admin.initialize_app(cred, {
             "databaseURL": "https://tinker-lab-manager-default-rtdb.firebaseio.com/"
         })
+
 
 
 def mark_in_use(booking_id):
