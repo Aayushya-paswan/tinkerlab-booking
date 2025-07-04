@@ -1,14 +1,18 @@
+import streamlit as st
 import firebase_admin
 from firebase_admin import credentials, db
-from datetime import datetime, timedelta
-import streamlit as st
-
+import tempfile
+import json
 
 def init_firebase():
     if not firebase_admin._apps:
-        cred = credentials.Certificate(st.secrets["firebase"])
+        with tempfile.NamedTemporaryFile(mode="w+", delete=False) as f:
+            json.dump(st.secrets["firebase"], f)
+            temp_cred_path = f.name
+
+        cred = credentials.Certificate(temp_cred_path)
         firebase_admin.initialize_app(cred, {
-            'databaseURL': 'https://tinker-lab-manager-default-rtdb.firebaseio.com/'
+            "databaseURL": "https://tinker-lab-manager-default-rtdb.firebaseio.com/"
         })
 
 
